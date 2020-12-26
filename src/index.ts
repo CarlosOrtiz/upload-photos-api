@@ -1,4 +1,9 @@
 import app from './app';
-app.listen(3100, () => {
-  console.log(`Server on port 3100`)
-})
+
+async function main() {
+  await app.listen(app.get('port'));
+  console.log(`App is running, server is listening on port ${app.get('port')}`);
+
+}
+
+main();
