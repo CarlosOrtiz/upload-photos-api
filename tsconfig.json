@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2019",
     "module": "commonjs",
-    "outDir": "./dist/src",
+    "outDir": "./dist",
+    "rootDir": "./",
     "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts",
