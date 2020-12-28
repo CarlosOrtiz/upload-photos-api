@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import indexRoutes from './router/index';
 import path from 'path';
+import cors from 'cors';
 require('dotenv').config({ path: '.env' })
 const app = express();
 
@@ -10,6 +11,7 @@ app.set('port', process.env.PORT || 4100);
 
 // Middleware
 app.use(morgan('dev'));
+app.use(cors());
 app.use(express.json());
 
 // Router
