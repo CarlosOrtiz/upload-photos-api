@@ -1,5 +1,6 @@
 import app from './app';
-import { startConnection } from '../@common/database'
+import { startConnection } from '../@common/database';
+
 const main = async () => {
   startConnection();
   await app.listen(app.get('port'));
