@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/src/index.js",
-    "dev": "nodemon src/index.ts",
+    "start": "npm run build && ts-node src/index.ts",
+    "dev": "nodemon -x ts-node src/index.ts",
     "clean": "rimraf dist"
   },
   "repository": {
