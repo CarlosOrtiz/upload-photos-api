@@ -7,6 +7,7 @@ export const startConnection = async () => {
   if (NODE_ENV === 'production')
     stringConnection = `mongodb${DB_INDICATIVE}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_DATABASE}${DB_OPTIONS}`;
 
+  console.log(stringConnection)
   await connect(stringConnection, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
