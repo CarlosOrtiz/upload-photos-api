@@ -8,26 +8,38 @@ import {
   updatedPhoto,
   inactivePhoto,
   getAllPhotosInactive,
-  activePhoto
+  activePhoto,
+  createGallery,
+  getAllGallery,
+  deleteGallery
 } from '../controllers/file.controllers'
 import multer from '../../@common/multer';
 
+router.route('/photo')
+  .post(multer.single("image"), createPhoto)
+
 router.route('/photos')
-  .post(multer.single('image'), createPhoto)
   .get(getAllPhotos)
+
+router.route('/gallery')
+  .post(multer.array("image", 10), createGallery)
+  .get(getAllGallery)
+
+router.route('/gallery/:id')
+  .delete(deleteGallery)
 
 router.route('/photos/inactive')
   .get(getAllPhotosInactive)
 
-router.route('/photos/:id')
+router.route('/photo/:id')
   .get(getPhotoById)
   .delete(deletePhoto)
   .put(updatedPhoto)
 
-router.route('/photos/inactive/:id')
+router.route('/photo/inactive/:id')
   .put(inactivePhoto)
 
-router.route('/photos/active/:id')
+router.route('/photo/active/:id')
   .put(activePhoto)
 
 export default router;

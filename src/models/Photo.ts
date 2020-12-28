@@ -1,11 +1,30 @@
 import { Schema, model, Document } from 'mongoose';
 
-const schema = new Schema({
-  name: String,
-  detail: String,
-  url: String,
-  state: String,
-  date: String
+const schema: Schema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  detail: {
+    type: String,
+    required: true
+  },
+  url: {
+    type: String,
+    required: false
+  },
+  state: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  images: {
+    type: Object,
+    required: false
+  }
 });
 
 interface IPhoto extends Document {
@@ -14,6 +33,13 @@ interface IPhoto extends Document {
   url: string;
   state: string;
   date: string;
+  images: any[];
 }
 
-export default model<IPhoto>('Photo', schema);
+let Gallery = model<IPhoto>('Gallery', schema);
+let PhotoModel = model<IPhoto>('Photo', schema);
+
+export default {
+  Gallery, PhotoModel
+}
+
